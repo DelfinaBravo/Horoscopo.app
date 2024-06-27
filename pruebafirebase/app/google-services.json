@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "172738536652",
+    "project_id": "firstfirebase-3055",
+    "storage_bucket": "firstfirebase-3055.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172738536652:android:b44c4bb110da4b56b88e69",
+        "android_client_info": {
+          "package_name": "com.example.pruebafirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB504fF9MnTLybTHbdFwv0w4aG_dy3t3y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

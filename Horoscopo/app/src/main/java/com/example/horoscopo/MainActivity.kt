@@ -1,26 +1,23 @@
 package com.example.horoscopo
 
 import android.os.Bundle
-import android.text.TextPaint
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var database: DatabaseReference
+    private lateinit var firebaseHelper: FirebaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Inicializar Firebase
-        database = FirebaseDatabase.getInstance().reference
+        // Inicializar FirebaseHelper
+        firebaseHelper = FirebaseHelper()
 
         val btn1: Button = findViewById(R.id.btn1)
         val signo: TextView = findViewById(R.id.signo)
@@ -30,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             if (opcionSeleccionada.isNotEmpty()) {
                 val mensajePersonalizado = mensaje(opcionSeleccionada)
                 signo.text = mensajePersonalizado
-                guardarSignoEnFirebase(opcionSeleccionada, mensajePersonalizado)
+                firebaseHelper.guardarSignoEnFirebase(opcionSeleccionada, mensajePersonalizado)
             } else {
                 // Si no se ingresa ninguna opción, mostrar un mensaje de error
                 signo.text = "Debe ingresar un signo"
@@ -54,18 +51,6 @@ class MainActivity : AppCompatActivity() {
             else -> {
                 "Signo ingresado incorrecto o inexistente"
             }
-        }
-    }
-
-    fun guardarSignoEnFirebase(opcion: String, mensaje: String) {
-        val signoId = database.push().key // Crear un nuevo ID para la entrada
-        val signoData = mapOf(
-            "opcion" to opcion,
-            "mensaje" to mensaje
-        )
-
-        if (signoId != null) {
-            database.child("signos").child(signoId).setValue(signoData)
         }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "17237449091",
+    "project_id": "rvavaloss",
+    "storage_bucket": "rvavaloss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17237449091:android:538ca157890e38d685feb6",
+        "android_client_info": {
+          "package_name": "com.example.rvavaloss"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCAv9GsPegf1kBr0womyQGPP_vKd4YMKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
